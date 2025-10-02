@@ -1,0 +1,19 @@
+Upstream-Status: Inappropriate [oe specific]
+
+diff --git a/src/webserver/civetweb/CMakeLists.txt b/src/webserver/civetweb/CMakeLists.txt
+index 943619d5..821e6cc6 100644
+--- a/src/webserver/civetweb/CMakeLists.txt
++++ b/src/webserver/civetweb/CMakeLists.txt
+@@ -32,5 +32,11 @@ target_compile_definitions(civetweb PRIVATE NO_CGI
+                                             USE_LUA
+                                             TIMER_RESOLUTION=1000)
+ 
+-include_directories(${PROJECT_SOURCE_DIR}/src/lua /usr/local/include)
++include_directories(${PROJECT_SOURCE_DIR}/src/lua)
++
++# Only add /usr/local/include in native builds
++if(NOT CMAKE_CROSSCOMPILING)
++    include_directories(/usr/local/include)
++endif()
++
+ target_include_directories(civetweb PRIVATE ${PROJECT_SOURCE_DIR}/src)
