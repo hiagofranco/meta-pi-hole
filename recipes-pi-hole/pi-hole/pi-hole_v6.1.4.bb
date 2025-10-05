@@ -31,6 +31,14 @@ SRCREV = "cef7fd4b02c9ae4314e7478c0d542379bfce7f65"
 
 S = "${WORKDIR}/git"
 
+inherit extrausers
+
+EXTRA_USERS_PARAMS += "\
+    groupadd pihole; \
+    useradd pihole; \
+    usermod -a -G pihole pihole; \
+    "
+
 do_configure[noexec] = "1"
 do_compile[noexec] = "1"
 
@@ -53,6 +61,7 @@ do_install() {
 }
 
 RDEPENDS:${PN} = "\
+    bind-utils \
     dnsmasq \
     curl \
     pi-hole-ftl \
