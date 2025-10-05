@@ -4,8 +4,6 @@ unwanted content without installing any client-side software."
 HOMEPAGE = "https://pi-hole.net/"
 BUGTRACKER = "https://github.com/pi-hole/web/issues"
 
-DEPENDS = "pi-hole-ftl"
-
 LICENSE = "EUPL-1.2"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=e0fbee952ed27d972a79a2a0e23427de"
 
